@@ -1,0 +1,21 @@
+<ion-modal-view ng-controller="resolverPerguntaCtrl">
+    <ion-header-bar>
+        <button class="button" ng-click="modal.hide()">Voltar</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-divider">
+                {{tarefaGrupo.tarefa.titulo}}
+            </div>
+            <div class="item item-text-wrap">
+                {{tarefaGrupo.tarefa.descricao}}
+            </div>
+        </div>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Resposta</span>
+            <textarea placeholder="..." ng-model="resposta"></textarea>
+        </label>
+        <button class="button button-block button-positive" ng-click="resolverPergunta(resposta)">Confirmar</button>
+    </ion-content>
+</ion-modal-view>

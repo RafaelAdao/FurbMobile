@@ -1,0 +1,25 @@
+<ion-modal-view ng-controller="resolverImagemCtrl">
+    <ion-header-bar>
+        <button class="button" ng-click="modal.hide()">Voltar</button>
+        <button class="button button-balanced" ng-click="resolverImagem()">Confirmar</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-divider">
+                {{tarefaGrupo.tarefa.titulo}}
+            </div>
+            <div class="item item-text-wrap">
+                {{tarefaGrupo.tarefa.descricao}}
+            </div>
+        </div>
+        <img ng-if="srcImagem != undefined" ng-src="{{srcImagem}}" style="max-width:100%; max-height:100%;" />
+    </ion-content>
+
+    <div class="bar bar-footer bar-positive">
+        <div class="title" ng-click="tirarFoto()">
+            <i class="icon ion-ios-camera" style="font-size: 45px"></i>
+        </div>
+    </div>
+
+</ion-modal-view>

@@ -1,0 +1,23 @@
+<ion-view view-title="Tarefas">
+
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="card" ng-repeat="t in tarefasGrupo" ng-click="resolverTarefa(t)">
+            <div class="item item-divider">
+                {{t.tarefa.titulo}}
+            </div>
+            <div class="item item-text-wrap">
+                {{t.tarefa.descricao}}
+            </div>
+            <div class="item item-divider">
+                {{t.tarefa.tipoTarefa}}
+            </div>
+        </div>
+    </ion-content>
+
+    <div class="bar bar-footer bar-balanced">
+        <div class="title"><a href="{{gincana.trello_UrlBoard}}" target="_blank">Placar</a></div>
+    </div>
+</ion-view>

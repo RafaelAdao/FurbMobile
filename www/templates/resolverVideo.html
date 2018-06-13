@@ -1,0 +1,40 @@
+<ion-modal-view ng-controller="resolverVideoCtrl">
+    <ion-header-bar>
+        <button class="button" ng-click="modal.hide()">Voltar</button>
+        <button class="button button-balanced" ng-click="resolverVideo()">Confirmar</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-divider">
+                {{tarefaGrupo.tarefa.titulo}}
+            </div>
+            <div class="item item-text-wrap">
+                {{tarefaGrupo.tarefa.descricao}}
+            </div>
+        </div>
+
+        <form class="list" ng-submit="getVideos(searchQuery)">
+            <label class="item item-input" name="search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Procurar" ng-model="searchQuery">
+            </label>
+
+            <ion-radio class="item" ng-model="videos.selecionado" value="{{video.id.videoId}}" ng-repeat="video in videos">
+                <ion-item class="item-thumbnail-left item-text-wrap">
+                    <img ng-src="{{video.snippet.thumbnails.default.url}}">
+                    <h2>{{video.snippet.title}}</h2>
+                </ion-item>
+            </ion-radio>
+
+        </form>
+    </ion-content>
+
+    <ion-footer-bar>
+        <div class="button-bar">
+            <button id="prev-button" class="button" ng-click="trocarPagina(prevPageToken)">Página Anterior</button>
+            <button id="next-button" class="button" ng-click="trocarPagina(nextPageToken)">Próxima página</button>
+        </div>
+    </ion-footer-bar>
+    
+</ion-modal-view>

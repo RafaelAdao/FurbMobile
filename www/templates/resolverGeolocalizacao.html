@@ -1,0 +1,32 @@
+<ion-modal-view id="minhamodal" ng-controller="resolverGeolocalizacaoCtrl" cache-view="false">
+    <ion-header-bar>
+        <button class="button" ng-click="modal.hide()">Voltar</button>
+        <button ng-disabled="!obj.renderizarMapa" class="button button-assertive icon-left ion-location" ng-click="centralizarPosicao()">Posição</button>
+        <button ng-disabled="!obj.renderizarMapa" class="button button-positive icon-left ion-navigate" ng-click="centralizarObjetivo()">Objetivo</button>
+        <button ng-disabled="!obj.renderizarMapa" class="button button-balanced" ng-click="resolverGeolocalizacao()">Confirmar</button>
+    </ion-header-bar>
+
+    <ion-content class="padding" data-tap-disabled="true">
+
+        <div class="card">
+            <div class="item item-divider">
+                {{tarefaGrupo.tarefa.titulo}}
+            </div>
+            <div class="item item-text-wrap">
+                {{tarefaGrupo.tarefa.descricao}}
+            </div>
+            <div ng-hide="obj.renderizarMapa" class="item item-divider" ng-init="obj.renderizarMapa = false">
+                <button class="button button-energized button-block" ng-click="obj.renderizarMapa = true">Mostrar Mapa</button>
+            </div>
+
+        </div>
+
+        <div ng-if="obj.renderizarMapa">
+            <ng-map id="mapa" zoom="18" center="current">
+                <shape id="circle" name="circle" centered="true" stroke-color='#00549A' stroke-opacity="0.8" stroke-weight="2" center="[{{tarefaGrupo.tarefa.latitude}}, {{tarefaGrupo.tarefa.longitude}}]"
+                    radius="{{tarefaGrupo.tarefa.raio}}" editable="false"></shape>
+                <marker position="current" centered="true"></marker>
+            </ng-map>
+        </div>
+    </ion-content>
+</ion-modal-view>

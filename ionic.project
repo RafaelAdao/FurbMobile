@@ -1,0 +1,12 @@
+{
+  "name": "FurbMobile",
+  "app_id": "64a98ff2",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
